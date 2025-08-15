@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import "../styles/globals.css";
+import "../../style/globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
+import Applayout from "@/components/core/AppLayout";
 
 export const metadata: Metadata = {
-  title: "Frontend Template",
-  description: "Frontend Template",
+  title: "PostLearn Dashboard",
+  description: "PostLearn Dashboard",
 };
 
-export default function RootLayout({
+export default function MainLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -17,11 +18,12 @@ export default function RootLayout({
       <body>
         <ThemeProvider
           attribute="class"
-          defaultTheme="dark"
-          enableSystem
+          defaultTheme="light"
           disableTransitionOnChange
         >
+          <Applayout>
           {children}
+          </Applayout>
         </ThemeProvider>
       </body>
     </html>
